@@ -20,6 +20,16 @@ public class RestaurantBill {
         // Calculate subtotal
         double subtotal = appetizerPrice + mainCoursePrice + dessertPrice + drinkPrice;
 
+        // Input for discount (if any)
+        System.out.print("Enter the discount percentage (0 for no discount): ");
+        double discountPercentage = scanner.nextDouble();
+        
+        // Calculate discount amount
+        double discountAmount = subtotal * (discountPercentage / 100);
+        
+        // Apply discount to the subtotal
+        subtotal -= discountAmount;
+
         // Input for tax and tip percentage
         System.out.print("Enter the tax percentage: ");
         double taxPercentage = scanner.nextDouble();
@@ -35,7 +45,8 @@ public class RestaurantBill {
         double totalBill = subtotal + taxAmount + tipAmount;
 
         // Output the results
-        System.out.printf("\nSubtotal: $%.2f\n", subtotal);
+        System.out.printf("\nSubtotal (after discount): $%.2f\n", subtotal);
+        System.out.printf("Discount applied: -$%.2f\n", discountAmount);
         System.out.printf("Tax: $%.2f\n", taxAmount);
         System.out.printf("Tip: $%.2f\n", tipAmount);
         System.out.printf("Total bill: $%.2f\n", totalBill);
