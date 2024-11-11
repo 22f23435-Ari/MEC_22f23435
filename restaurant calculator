@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class RestaurantBill {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input for food items
+        System.out.print("Enter the price of the appetizer: $");
+        double appetizerPrice = scanner.nextDouble();
+        
+        System.out.print("Enter the price of the main course: $");
+        double mainCoursePrice = scanner.nextDouble();
+        
+        System.out.print("Enter the price of the dessert: $");
+        double dessertPrice = scanner.nextDouble();
+        
+        System.out.print("Enter the price of the drink: $");
+        double drinkPrice = scanner.nextDouble();
+
+        // Calculate subtotal
+        double subtotal = appetizerPrice + mainCoursePrice + dessertPrice + drinkPrice;
+
+        // Input for tax and tip percentage
+        System.out.print("Enter the tax percentage: ");
+        double taxPercentage = scanner.nextDouble();
+        
+        System.out.print("Enter the tip percentage: ");
+        double tipPercentage = scanner.nextDouble();
+
+        // Calculate tax and tip
+        double taxAmount = subtotal * (taxPercentage / 100);
+        double tipAmount = subtotal * (tipPercentage / 100);
+
+        // Calculate total bill
+        double totalBill = subtotal + taxAmount + tipAmount;
+
+        // Output the results
+        System.out.printf("\nSubtotal: $%.2f\n", subtotal);
+        System.out.printf("Tax: $%.2f\n", taxAmount);
+        System.out.printf("Tip: $%.2f\n", tipAmount);
+        System.out.printf("Total bill: $%.2f\n", totalBill);
+
+        scanner.close();
+    }
+}
